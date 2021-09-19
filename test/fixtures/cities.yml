@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  gia: MyString
+  ibgeid: MyString
+  state: one
+
+two:
+  name: MyString
+  gia: MyString
+  ibgeid: MyString
+  state: two

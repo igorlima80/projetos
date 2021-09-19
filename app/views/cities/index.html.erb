@@ -1,0 +1,47 @@
+<%= search_form_for @q, url: cities_path do |f| %>
+  <div class="card card-primary card-outline card-info">
+    <div class="card-header with-border">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button type="button" id='btn_filter' class="btn btn-info">
+                <i class="fa fa-angle-right"></i>
+                Filtrar
+              </button>
+            </div>
+            <%= f.input :name_cont, label: false, required: false,
+              placeholder: 'Nome', wrapper: false %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 active-filters "></div>
+      </div>
+    </div>
+    <div class="card-body" style='display: none;'>
+      <div class="row">
+        <%= f.input :state_name_cont, label: 'Estado', required: false, placeholder: 'Estado', wrapper_html: { class: 'col-md-3' } %>
+      </div>
+      <%= button_tag type: "submit", class: "btn btn-info" do %>
+        <i class="fa fa-search"></i> Pesquisar
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= render 'shared/card_list',
+  list: @cities,
+  sort_all: true,
+  show_new: true,
+  card_class: 'info',
+  table_class: 'bootstrap-table-mobile',
+  show_columns: [
+    'id',
+    'name',
+    'gia',
+    'ibgeid',
+    'state.name',
+    'state.country.name'
+  ]
+%>

@@ -1,0 +1,43 @@
+<%= render 'shared/show', box_class: 'info', object: @stage%>
+
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+     Tipos de Tarefa 
+    </h3>
+  </div>
+  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>ID</th>
+          <th data-align='left'>Nome</th> 
+          <th data-align='center'>Ações</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% @stage.task_types.each do |t| %>
+          <tr>     
+            <td> 
+                <%= link_to task_type_path(t) do %>
+                  <%= t.id %></i> 
+                <% end %>    
+            </td>    
+           
+            <td><%= t.name %></td>
+            
+            <td> 
+              <%= link_to task_type_path(t), class: "btn btn-xs btn-info" do %>
+                Visualizar </i> 
+              <% end %>    
+            </td>    
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 

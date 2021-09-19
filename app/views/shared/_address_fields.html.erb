@@ -1,0 +1,21 @@
+<div class="card card-info card-outline address nested-fields">
+  <div class="card-header with-border">
+    <h3 class="card-title">
+      <%= Address.model_name.human %>
+    </h3>
+  </div>
+  <div class="card-body">
+    <div class="row ">
+      <%= f.input :description, placeholder: 'Ex: Casa, Trabalho', wrapper_html: { class: 'col-md-3' } %>
+      <%= f.input :zipcode, wrapper_html: { class: 'col-md-3' }, input_html: { class: 'zipcode_mask' } %>
+      <%= f.input :street, wrapper_html: { class: 'col-md-4' } %>
+      <%= f.input :number, wrapper_html: { class: 'col-md-2' } %>
+      <%= f.input :complement, wrapper_html: { class: 'col-md-4' } %>
+      <%= f.input :district, wrapper_html: { class: 'col-md-4' } %>
+      <%= f.association :city, wrapper_html: { class: 'col-md-4' },
+        input_html: { class: 'select2_cities' },
+        collection: @cities_address.map{ |c| [c.name, c.id, data: { ibge: c.ibgeid }] }
+      %>
+    </div>
+  </div>
+</div>

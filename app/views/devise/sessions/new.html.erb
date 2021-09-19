@@ -1,0 +1,21 @@
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="card-body">
+    <%= f.input :email, autofocus: true, label: "E-mail", input_html: { class: "form-control", placeholder: "Nome do usuário" } %>
+    <%= f.input :password, label: "Senha", input_html: { class: "form-control", placeholder: "Senha" } %>
+    <%#= f.input :remember_me, as: :boolean, label: 'Lembrar-me' if devise_mapping.rememberable? %>
+
+    <div class="form-group">
+      <div class="custom-control custom-switch">
+        <%= f.check_box :remember_me, class: 'custom-control-input' %>
+        <%= f.label :remember_me, class: 'custom-control-label' do %>
+          Lembrar-me
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <%= f.submit "Entrar", class: 'btn btn-info float-right' %>
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>

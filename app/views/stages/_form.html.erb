@@ -1,0 +1,59 @@
+<%= simple_form_for(@stage) do |f| %>
+  <div class="card card-outline card-info">
+    <div class="card-header">
+      <h3 class="card-title">
+        Dados do <%= object.class.model_name.human %> 
+        <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default btn-xs" %>
+        <%= f.submit 'Salvar', class: "btn btn-info btn-xs" %>
+      </h3>
+    </div>
+
+    <div class="card-body">
+      <div class="row">          
+        <%= f.input :name, wrapper_html: { class: 'col-md-8' } %>
+      </div>
+    </div>  
+  </div>
+
+
+  <div class="tab-pane" id="tab_5">
+      <div class="card card-outline card-info">
+        <div class="card-header">
+          <h3 class="card-title">
+            Tipos de Tarefa
+          </h3>
+        </div>
+        <div class="card-body">
+                    
+          <div id="task_types" class='row'>
+            <div class="col-md-12">
+              <%= f.simple_fields_for :task_types do |tt| %>
+                <%= render 'task_type_fields', f: tt %>
+              <% end %>
+
+              <div class="control-group">
+                <div class="controls">
+                  <%= link_to_add_association f, :task_types do %>
+                    <div class="btn btn-success">
+                      <i class="fa fa-fw fa-plus"></i> Adicionar Tipo de Tarefa
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  <div class="card card-outline card-info">
+    <div class="card-footer">
+      <%= f.submit class: "btn btn-info" %>
+      <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+    </div>
+  </div>
+
+<% end %>

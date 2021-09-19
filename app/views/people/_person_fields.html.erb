@@ -1,0 +1,40 @@
+<div class="card card-info dependent nested-fields">
+  <div class="card-header">
+    <h3 class="card-title">Dependente</h3>
+    <div class="card-tools">
+      <%= link_to_remove_association f, class: 'btn btn-tool' do %>
+        <i class="fa fa-fw fa-times"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-9">
+        <div class="row">
+          <%= f.input :name, wrapper_html: { class: 'col-md-9' }  %> 
+        
+        </div>
+        <div class="row">
+          <%= f.input :mother, wrapper_html: { class: 'col-md-6' }  %> 
+          <%= f.input :father, wrapper_html: { class: 'col-md-6' }  %> 
+        </div>
+        <div class="row">
+          <%= f.input :cpf, wrapper_html: { class: 'col-md-3' } %>
+          <%= f.input :rg, wrapper_html: { class: 'col-md-3' } %>
+          <%= f.input :birth, html5: true, wrapper_html: { class: 'col-3' } %>
+          <%= f.association :city, wrapper_html: { class: 'col-md-3' },
+            collection: Proc.new{ City.order(:name).map{ |c| [c.name, c.id, data: { ibge: c.ibgeid }] } }
+          %>
+        </div>
+      </div>
+       <div class="col-3">
+        <%= f.hidden_field :photo, value: f.object.photo.signed_id if f.object.photo.attached? %>
+        <%= f.input :photo, input_html: {
+          direct_upload: true, class: 'fileinput', data: { 
+            file: (rails_blob_url(f.object.photo) if f.object.photo.attached?)
+          }
+        } %>
+      </div>
+    </div>
+  </div>
+</div>

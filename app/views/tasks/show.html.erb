@@ -1,0 +1,53 @@
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Tarefas
+      <%= link_to new_construction_task_path(@task.construction), class: "btn btn-xs btn-info" do %>
+        Adicionar <i class="fa fa-plus"></i> 
+      <% end %>     
+    </h3>
+  </div>
+  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th width="15%">Campo</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+
+      <tbody>      
+          <tr>     
+            <th> Etapa</th>
+            <td><%= @task.task_type.full_description %></td>
+          <tr> 
+            <th> Tipo de Tarefa</th>
+            <td><%= @task.task_type.name %></td>
+          </tr>
+          <tr> 
+            <th> Data de Início </th>
+            <td><%= @task.start_date  %></td>
+          </tr>
+          <tr> 
+            <th> Data de Fim </th>
+            <td><%= @task.end_date  %></td>
+          </tr>  
+          <tr> 
+            <th> Orçamento Previsto </th>
+            <td><%= @task.budget_amount %></td>
+          </tr>
+          <tr> 
+            <th> Custo Real </th>
+            <td><%= @task.cost %></td>
+          </tr>
+          <tr> 
+            <th> Status </th>
+            <td><%= @task.status %></td>
+          </tr>
+       
+      </tbody>
+    </table>          
+  </div>
+</div> 

@@ -1,0 +1,167 @@
+<%= simple_form_for(object) do |f| %>
+
+  <div class="card">
+    <ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <a class="nav-link active" href="#tab_1" data-toggle="tab">
+          <i class="fa fa-home fa-2x"></i> 
+          <br>
+          Básico
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#tab_2" data-toggle="tab">
+          <i class="fa fa-map-marked-alt fa-2x"></i>
+          <br>
+          Endereço
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#tab_3" data-toggle="tab">
+          <i class="fa fa-user fa-2x"></i>
+          <br>
+          Usuário
+        </a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link" href="#tab_5" data-toggle="tab">
+          <i class="fa fa-mobile-alt fa-2x"></i>
+          <br>
+          Contatos
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#tab_6" data-toggle="tab">
+          <i class="fa fa-id-card fa-2x"></i>
+          <br>
+          Documentos
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab_1">
+      <div class="card card-outline card-info">
+        <div class="card-header">
+          <h3 class="card-title">
+            Dados Básicos
+          </h3>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-9">
+              <%= f.input :name %>
+              <%= f.input :mother %>
+              <%= f.input :father %>
+              <div class="row">
+              </div>
+              <div class="row">
+                <%= f.input :cpf, wrapper_html: { class: 'col-md-3' }, input_html: { class: 'cpf_mask' } %>
+                <%= f.input :rg, wrapper_html: { class: 'col-md-3' } %>
+                <%= f.input :birth, html5: true, wrapper_html: { class: 'col-3' } %>
+                <%= f.association :city, wrapper_html: { class: 'col-md-3' },
+                  input_html: { class: 'select2_cities' },
+                  collection: @cities
+                %>
+              </div>
+            </div>
+            <div class="col-3">
+              <%= f.hidden_field :photo, value: f.object.photo.signed_id if f.object.photo.attached? %>
+              <%= f.input :photo, input_html: {
+                direct_upload: true, class: 'fileinput', data: { 
+                  file: (rails_blob_url(f.object.photo) if f.object.photo.attached?)
+                }
+              } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab_2">
+      <%= f.simple_fields_for :addresses do |address| %>
+        <%= render 'shared/address_fields', f: address %>
+      <% end %>
+    </div>
+
+    <div class="tab-pane" id="tab_3">
+      <%= f.simple_fields_for :user do |user| %>
+        <%= render 'shared/user_fields', f: user %>
+      <% end %>
+    </div>
+
+   
+
+    <div class="tab-pane" id="tab_5">
+      <div class="card card-outline card-info">
+        <div class="card-header">
+          <h3 class="card-title">
+            Contatos
+          </h3>
+        </div>
+        <div class="card-body">
+         
+          
+          <div id="phones" class='row'>
+            <div class="col-md-12">
+              <%= f.simple_fields_for :phones do |fe| %>
+                <%= render 'phone_fields', f: fe %>
+              <% end %>
+
+              <div class="control-group">
+                <div class="controls">
+                  <%= link_to_add_association f, :phones do %>
+                    <div class="btn btn-success">
+                      <i class="fa fa-fw fa-plus"></i> Adicionar Telefone
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab_6">
+      <div class="card card-outline card-info">
+        <div class="card-header">
+          <h3 class="card-title">
+            Documentos
+          </h3>
+        </div>
+        <div class="card-body">
+          <div id="documents" class='row'>
+            <div class="col-md-12">
+              <%= f.simple_fields_for :documents do |fe| %>
+                <%= render 'document_fields', f: fe %>
+              <% end %>
+
+              <div class="control-group">
+                <div class="controls">
+                  <%= link_to_add_association f, :documents do %>
+                    <div class="btn btn-success">
+                      <i class="fa fa-fw fa-plus"></i> Adicionar Documento
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card card-outline card-info">
+    <div class="card-footer">
+      <%= f.submit class: "btn btn-info" %>
+      <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>
+
+

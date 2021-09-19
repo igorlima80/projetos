@@ -1,0 +1,96 @@
+<%= render 'shared/show', box_class: 'info', object: @person, excluded_columns: ['user_id', 'workplace'] %>
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Vínculos
+      <%= link_to new_person_employment_path(@person), class: "btn btn-xs btn-info" do %>
+        Adicionar <i class="fa fa-plus"></i> 
+      <% end %>     
+    </h3>
+  </div>
+  
+
+  <div class="card-body p-0">  
+    <table class="bootstrap-table-mobile">
+      <thead>
+        <tr>
+          <th data-align='center'>ID</th>
+          <th data-align='center'>Data de Admissão</th>
+          <th data-align='center'>Cargo</th>
+          <th data-align='center'>Salário Base</th>
+          <th data-align='center'>Benefícios</th>
+          <th data-align='center'>Fim do Vínculo</th>
+          <th data-align='center'>Status</th>
+          <th data-align='center'>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @person.employments.each do |e| %>
+          <tr>     
+            <td> 
+                <%= link_to person_employment_path(@person) do %>
+                  <%= e.id%></i> 
+                <% end %>    
+            </td>    
+            <td><%= e.admission_date%></td>
+            <td><%= e.occupation.name %></td>
+            <td><%= e.base_salary %></td>  
+            <td><%= e.total_benefits%></td>  
+            <td><%= e.resignation_date %></td>
+            <td><%= e.status %></td>
+            <td> 
+            <%= link_to person_employment_path(@person), class: "btn btn-xs btn-info" do %>
+              Visualizar </i> 
+            <% end %>    
+        </td>    
+          </tr>
+        <% end %>
+      </tbody>
+    </table>          
+  </div>
+</div> 
+
+
+
+
+
+
+<div class="card card-outline card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Documentos
+    </h3>
+  </div>
+  <div class="table">
+    <div id="documentos" class='row'>
+      <div class="card-body">  
+      <table class="table table-bordered table-striped no-padding datatables">
+        <thead>
+          <tr>
+            <th width="15%">Tipo de Documento</th>
+            <th>Anexo</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @person.documents.each do |d| %>
+          <tr>     
+              <td><%= d.document_type.name %> </td>  
+              <td><%= link_to "Visualizar", rails_blob_path(d.attachment, disposition: 'preview'), target: :_blank  %></td>                 
+          </tr>
+        <% end %>
+        </tbody>
+      </table>          
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+
+
+
+
+
+
+

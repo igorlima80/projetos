@@ -1,0 +1,113 @@
+@import './bootstrap_custom.scss';
+
+@import '~admin-lte/dist/css/adminlte';
+@import '~overlayscrollbars/css/OverlayScrollbars';
+
+@import 'bootstrap-table/dist/bootstrap-table.css';
+@import 'select2/dist/css/select2.css';
+@import 'bootstrap-fileinput/css/fileinput';
+
+@import 'select2/dist/css/select2';
+@import 'select2-bootstrap4-theme/dist/select2-bootstrap4';
+
+a {
+  color: #17a2b8;
+}
+
+.page-item.active .page-link {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.page-link:hover {
+  color: #17a2b8;
+}
+
+.page-link {
+  color: #17a2b8;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: #17a2b8;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+  color: #17a2b8;
+}
+
+/* fix bootstrap-table com sort_link do ranasck */
+.bootstrap-table .table thead th .asc {
+  background-image: unset !important;
+}
+
+.bootstrap-table .table thead th .desc {
+  background-image: unset !important;
+}
+
+@media (max-width: 767.98px) {
+  .bootstrap-table .fixed-table-container .table tbody tr .card-view .card-view-title {
+    min-width: 100% !important;
+  }
+}
+
+// top
+@media(min-width: 768px) {
+  .top-32 {
+    margin-top: 32px;
+  }
+}
+
+/* remocao do espaco a mais nas tabelas que o adminlte coloca */
+@media (max-width: 767.98px) {
+  .card-body.p-0 .table thead > tr > th:first-of-type,
+  .card-body.p-0 .table thead > tr > td:first-of-type,
+  .card-body.p-0 .table tbody > tr > th:first-of-type,
+  .card-body.p-0 .table tbody > tr > td:first-of-type {
+    padding-left: 0.5rem !important;
+  }
+
+  .card-body.p-0 .table thead > tr > th:last-of-type,
+  .card-body.p-0 .table thead > tr > td:last-of-type,
+  .card-body.p-0 .table tbody > tr > th:last-of-type,
+  .card-body.p-0 .table tbody > tr > td:last-of-type {
+    padding-right: 0.5rem !important;
+  }
+
+  .card-title {
+    margin-bottom: 0.2rem;
+  }
+}
+
+/* remocao do espaco a mais nas tabelas que o bootstrap-table coloca */
+.bootstrap-table thead > tr > th:first-of-type,
+.bootstrap-table thead > tr > td:first-of-type {
+  padding-left: 0.5rem !important;
+}
+
+.bootstrap-table thead > tr > th:last-of-type,
+.bootstrap-table thead > tr > td:last-of-type {
+  padding-right: 0.5rem !important;
+}
+
+// ajustes no fileinput
+.fileinput-drop-zone-title-adjust {
+  padding: 45px 10px;
+}
+
+.fileinput-preview-adjust {
+  height: 160px;
+}
+
+.file-drop-zone {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+.file-preview {
+  padding: 3px;
+}
+
+.file-preview-image {
+  height: 115px !important;
+}

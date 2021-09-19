@@ -1,0 +1,42 @@
+<%= search_form_for @q, url: countries_path do |f| %>
+  <div class="card card-primary card-outline card-info">
+    <div class="card-header with-border">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button type="button" id='btn_filter' class="btn btn-info">
+                <i class="fa fa-angle-right"></i>
+                Filtrar
+              </button>
+            </div>
+            <%= f.input :name_cont, label: false, required: false,
+              placeholder: 'Nome', wrapper: false %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 active-filters "></div>
+      </div>
+    </div>
+    <div class="card-body" style='display: none;'>
+      <div class="row">
+      </div>
+      <%= button_tag type: "submit", class: "btn btn-info" do %>
+        <i class="fa fa-search"></i> Pesquisar
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= render 'shared/card_list',
+  list: @countries,
+  sort_all: true,
+  show_new: true,
+  card_class: 'info',
+  table_class: 'bootstrap-table-mobile',
+  show_columns: [
+    'id',
+    'name'
+  ]
+%>

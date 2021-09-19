@@ -1,0 +1,20 @@
+<div class="card card-outline card-info">
+  <%= simple_form_for(object) do |f| %>
+    <div class="card-header">
+      <h3 class="card-title">
+        Dados do <%= object.class.model_name.human %>
+        <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default btn-xs" %>
+        <%= f.submit 'Salvar', class: "btn btn-info btn-xs" %>
+      </h3>
+    </div>
+    <div class="card-body">
+      <%= f.input :email %>
+      <%= f.input :password %>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+
+      <%= f.submit class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>

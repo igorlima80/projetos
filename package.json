@@ -1,0 +1,27 @@
+{
+  "name": "controle_obras",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "@popperjs/core": "^2.3.3",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.2.2",
+    "admin-lte": "^3.0.4",
+    "bootstrap": "^4.4.1",
+    "bootstrap-fileinput": "^5.0.8",
+    "bootstrap-table": "^1.16.0",
+    "cocoon-rails": "^1.2.6",
+    "codemirror": "^5.53.2",
+    "inputmask": "^5.0.5",
+    "jquery": "^3.5.0",
+    "resolve-url-loader": "^3.1.1",
+    "select2": "^4.0.13",
+    "select2-bootstrap4-theme": "^1.0.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.3"
+  }
+}

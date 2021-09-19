@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  start_date: 2020-09-25
+  end_date: 2020-09-25
+  area: 1
+  expected_budget: 
+  ground_area: 9.99
+  bedroom: 1
+  bathroom: 1
+  toilet: 1
+  living_room: 1
+  cars_in_garage: 1
+  construction_type: one
+  workplace: one
+  pattern: 1
+  barbecue_grill: 1
+  home_office: 1
+  balcony: 1
+
+two:
+  name: MyString
+  description: MyText
+  start_date: 2020-09-25
+  end_date: 2020-09-25
+  area: 1
+  expected_budget: 
+  ground_area: 9.99
+  bedroom: 1
+  bathroom: 1
+  toilet: 1
+  living_room: 1
+  cars_in_garage: 1
+  construction_type: two
+  workplace: two
+  pattern: 1
+  barbecue_grill: 1
+  home_office: 1
+  balcony: 1

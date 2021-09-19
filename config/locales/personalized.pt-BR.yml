@@ -1,0 +1,158 @@
+# encoding: UTF-8
+pt-BR:
+  enums:
+    accession:
+      status:
+        activated: Ativado
+        canceled: Cancelado
+    bank_check:
+      status:
+        pending: "Pendente"
+        analyzed: "Analisado"
+        paid: "Pago"
+    invoice:
+      status:
+        registered: "Cadastrada"
+        paid: "Paga"
+        cancelled: "Cancelada"
+        parceled_out: "Parcelada"   
+    plan_table:
+      status:
+        accept_membership: Aceitando Membros
+        active: Ativo
+        inactive: Inativo
+        registered: Cadastrado
+      type_coverage:
+        national: Nacional
+        state: Estadual
+      type_hospitalization:
+        apartment: Apartamento
+        nursery: Enfermaria
+      type_participation:
+        with_co_participation: Com co-participação
+        without_co_participation: Sem co-participação
+    analyze:
+      status:
+        approved: "Aprovado"
+        not_approved: "Não Aprovado"
+  activerecord:
+    models: &MODELS
+      accession: Adesão
+      address: Endereço
+      bank_check: Chequinho
+      city: Cidade
+      country: País
+      county: Comarca
+      deposit: Depósito
+      invoice: Fatura
+      kinship: Parentesco
+      person: Pessoa
+      phone: Telefone
+      phone_type: Tipo de Telefone
+      place: Carreira/Cargo
+      plan: Plano
+      plan_table: Plano de Saúde
+      readjustment: Reajuste
+      state: Estado
+      setting: Configurações
+      team: Grupo
+      user: Usuário
+      workplace: Local de Trabalho
+    attributes:
+      name_and_description: &BASIC
+        id: "#"
+        name: Nome
+        description: Descrição
+        kind: Tipo
+        created_at: Criação
+        updated_at: Atualização
+      accession:
+        <<: *BASIC
+        <<: *MODELS
+      address:
+        <<: *BASIC
+        <<: *MODELS
+        street: Logradouro
+        number: Número
+        complement: Complemento
+        district: Bairro
+        zipcode: CEP  
+      bank_check:
+        requested_value: Valor Solicitado
+        net_paycheck_value: Valor Líquido do Contracheque 
+        invoice_month: Mês da Fatura 
+        paycheck: Contracheque
+      city:
+        <<: *BASIC
+        <<: *MODELS
+      country:
+        <<: *BASIC
+        <<: *MODELS
+      deposit:
+        operation_date: Data da Operação
+        value: Valor  
+      invoice:
+        <<: *BASIC
+        <<: *MODELS  
+        fee: Taxa de Serviço
+        total_personal_plan: Total do Plano Pessoal
+        total_dependents_plan: Total dos Planos dos Dependentes
+        account_balance: Saldo da Conta
+        outstanding_balance: Saldo Devedor
+        total_bank_check: Total dos Chequinhos
+        total_value: Valor Total
+        month: Mês
+        <<: *BASIC
+        <<: *MODELS
+      person:
+        <<: *BASIC
+        <<: *MODELS
+        admission: Admissão
+        birth: Nascimento
+        business_email: E-mail institucional
+        cpf: CPF
+        father: Pai
+        mother: Mãe
+        photo: Foto
+        registration: Matrícula
+        rg: RG
+        full_description: Descrição
+      phone:
+        <<: *BASIC
+        <<: *MODELS
+        number: Telefone
+      place:
+        <<: *BASIC
+        <<: *MODELS
+      plan:
+        <<: *BASIC
+        <<: *MODELS
+        minimum_age: Idade mínima
+        value: Valor
+      plan_table:
+        <<: *BASIC
+        <<: *MODELS
+        status: Estado
+        type_coverage: Cobertura
+        type_hospitalization: Acomodação
+        type_participation: Participação
+      readjustment:
+        <<: *BASIC
+        <<: *MODELS
+        percentage: Porcentagem
+        justification: Justificativa
+      state:
+        <<: *BASIC
+        <<: *MODELS
+        acronym: Sigla
+      setting:
+        fee_with_service: Taxa com Serviço
+        fee_without_service: Taxa sem Serviço  
+        percentage_net_value_total: Percentual Total do Valor Líquido
+      team:
+        <<: *BASIC
+        <<: *MODELS
+      user:
+        <<: *BASIC
+        <<: *MODELS
+        password: Senha

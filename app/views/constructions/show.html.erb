@@ -1,0 +1,549 @@
+
+<div class="card card-outline card-info">
+        <div class="card-header">
+          <h3 class="card-title">Detalhes da Construção
+            <%= link_to new_construction_path, class: "btn btn-xs btn-info" do %>
+              Cadastrar <i class="fa fa-plus"></i> 
+            <% end %> 
+            <%= link_to edit_construction_path(@construction), class: "btn btn-warning btn-xs", data: { toggle: 'tooltip', placement: 'top', title: 'Editar' } do %>
+              Editar <i class="fa fa-pencil"></i>
+            <% end %>
+            <%= link_to 'Listagem', constructions_path, class: "btn btn-default btn-xs" %>
+          </h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+              <div class="row">
+                <div class="col-12 col-sm-4">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Orçamento Estimado</span>
+                      <span class="info-box-number text-center text-muted mb-0">R$ <%= @construction.expected_budget %></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Valor Total Gasto</span>
+                      <span class="info-box-number text-center text-muted mb-0">R$ <%= @construction.total_amount_spend %></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Percentual de Execução</span>
+                      <span class="info-box-number text-center text-muted mb-0"><%= @construction.percentual_of_execution %>%<span>
+                    </span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">Monthly Recap Report</h5>
+    
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+                          <i class="fas fa-wrench"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                          <a href="#" class="dropdown-item">Action</a>
+                          <a href="#" class="dropdown-item">Another action</a>
+                          <a href="#" class="dropdown-item">Something else here</a>
+                          <a class="dropdown-divider"></a>
+                          <a href="#" class="dropdown-item">Separated link</a>
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <p class="text-center">
+                          <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                        </p>
+    
+                        <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                          <!-- Sales Chart Canvas -->
+                          <canvas id="salesChart" height="180" style="height: 180px; display: block; width: 670px;" width="670" class="chartjs-render-monitor"></canvas>
+                        </div>
+                        <!-- /.chart-responsive -->
+                      </div>
+                      <!-- /.col -->
+                      <div class="col-md-4">
+                        <p class="text-center">
+                          <strong>Goal Completion</strong>
+                        </p>
+    
+                        <div class="progress-group">
+                          Add Products to Cart
+                          <span class="float-right"><b>160</b>/200</span>
+                          <div class="progress progress-sm">
+                            <div class="progress-bar bg-primary" style="width: 80%"></div>
+                          </div>
+                        </div>
+                        <!-- /.progress-group -->
+    
+                        <div class="progress-group">
+                          Complete Purchase
+                          <span class="float-right"><b>310</b>/400</span>
+                          <div class="progress progress-sm">
+                            <div class="progress-bar bg-danger" style="width: 75%"></div>
+                          </div>
+                        </div>
+    
+                        <!-- /.progress-group -->
+                        <div class="progress-group">
+                          <span class="progress-text">Visit Premium Page</span>
+                          <span class="float-right"><b>480</b>/800</span>
+                          <div class="progress progress-sm">
+                            <div class="progress-bar bg-success" style="width: 60%"></div>
+                          </div>
+                        </div>
+    
+                        <!-- /.progress-group -->
+                        <div class="progress-group">
+                          Send Inquiries
+                          <span class="float-right"><b>250</b>/500</span>
+                          <div class="progress progress-sm">
+                            <div class="progress-bar bg-warning" style="width: 50%"></div>
+                          </div>
+                        </div>
+                        <!-- /.progress-group -->
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                  </div>
+                  <!-- ./card-body -->
+                  
+                </div>
+                <!-- /.card -->
+              </div>
+              <!-- /.col -->
+            </div>
+
+
+            <div class="card">
+            <div class="card-header border-transparent">
+              <h3 class="card-title">Latest Orders</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="table m-0">
+                  <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Item</th>
+                    <th>Status</th>
+                    <th>Popularity</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                    <td>Call of Duty IV</td>
+                    <td><span class="badge badge-success">Shipped</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                    <td>Samsung Smart TV</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                    <td>iPhone 6 Plus</td>
+                    <td><span class="badge badge-danger">Delivered</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                    <td>Samsung Smart TV</td>
+                    <td><span class="badge badge-info">Processing</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                    <td>Samsung Smart TV</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                    <td>iPhone 6 Plus</td>
+                    <td><span class="badge badge-danger">Delivered</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                    <td>Call of Duty IV</td>
+                    <td><span class="badge badge-success">Shipped</span></td>
+                    <td>
+                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+              <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
+              <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+            </div>
+            <!-- /.card-footer -->
+          </div>
+
+
+
+              <div class="row">
+                <div class="col-12">
+                  
+                      <h4>                    
+                        Diário de Trabalho
+                        <%= link_to new_construction_work_diary_path(@construction), class: "btn btn-xs btn-info" do %>
+                          Adicionar <i class="fa fa-plus"></i> 
+                        <% end %>  
+                      </h4>
+                    
+                    <% @construction.work_diaries.each do |t| %>
+                        <div class="card">                      
+                          <div class="card-header">
+                            <div class="user-block">
+                              <span class="username">
+                                <%= link_to t.stage.name, construction_work_diary_path(t) %>
+                                
+                               
+                              </span>                            
+                              <span class="description"><%= t.work_date %>: <%= t.start_time.strftime("%F") %> - <%= t.end_time %></span>
+
+                            </div>  
+                          </div>
+                          <!-- /.user-block -->
+                          
+                            <div class="card-body">
+                              <%= t.activities_description %>                           
+                            </div>
+                          
+                        
+                           
+                          
+                  </div>      
+                     
+
+                  <% end %>  
+
+
+                   
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+              <h3 class="text-primary"> <i class="fas fa-user"></i> <%= @construction.person.name %></h3>
+              <p class="text-muted" style="text-align:justify" ><%= @construction.description %></p>
+              <br>
+
+            <div class="row">  
+              <div class="col-sm-4">
+                <div class="text-muted">
+                  <p class="text-sm">Tipo de Construção
+                    <b class="d-block"><%= @construction.construction_type.name %></b>
+                  </p>
+                </div>   
+                <div class="text-muted">
+                  <p class="text-sm">Área
+                    <b class="d-block"><%= @construction.area %> m²</b>
+                  </p>
+                </div> 
+                <div class="text-muted">
+                  <p class="text-sm">Área Térrea
+                    <b class="d-block"><%= @construction.ground_area %> m²</b>
+                  </p>
+                </div>   
+                <div class="text-muted">
+                  <p class="text-sm">Local
+                    <b class="d-block"><%= @construction.workplace.name %></b>
+                  </p>
+                </div> 
+                
+              </div>
+
+              <div class="col-sm-4">
+              <div class="text-muted">
+                <p class="text-sm">Quartos
+                  <b class="d-block"><%= @construction.bedroom %></b>
+                </p>
+              </div>   
+              <div class="text-muted">
+                <p class="text-sm">Banheiros
+                  <b class="d-block"><%= @construction.bathroom %></b>
+                </p>
+              </div> 
+              <div class="text-muted">
+                <p class="text-sm">Lavabos
+                  <b class="d-block"><%= @construction.toilet %></b>
+                </p>
+              </div>   
+              <div class="text-muted">
+                <p class="text-sm">Salas de Estar
+                  <b class="d-block"><%= @construction.living_room %></b>
+                </p>
+              </div> 
+              
+            </div>
+
+            <div class="col-sm-4">
+            <div class="text-muted">
+              <p class="text-sm">Carros na Garagem
+                <b class="d-block"><%= @construction.cars_in_garage %></b>
+              </p>
+            </div>   
+            <div class="text-muted">
+              <p class="text-sm">Padrão de Qualidade
+                <b class="d-block"><%= @construction.pattern %> </b>
+              </p>
+            </div> 
+            <div class="text-muted">
+              <p class="text-sm">Churrasqueira
+                <% if @construction.barbecue_grill %>
+                  <b class="d-block">Sim</b>
+                <% else %>
+                  <b class="d-block">Não</b>
+                <% end %>                
+              </p>
+            </div>  
+
+            <div class="text-muted">
+              <p class="text-sm">Escritório
+               <% if @construction.home_office %>
+                  <b class="d-block">Sim</b>
+                <% else %>
+                  <b class="d-block">Não</b>
+                <% end %>               
+              </p>
+            </div> 
+
+            <div class="text-muted">
+              <p class="text-sm">Varanda
+                <% if @construction.balcony %>
+                  <b class="d-block">Sim</b>
+                <% else %>
+                  <b class="d-block">Não</b>
+                <% end %>               
+              </p>
+            </div> 
+            
+          </div>       
+        </div>  
+        
+        <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      Equipe do Projeto
+                    </h3>
+                  </div>
+                  <div class="table">
+                    <div id="equipe" class='row'>
+                      <div class="card-body">  
+                      <table class="table table-bordered table-striped no-padding datatables">
+                        <thead>
+                          <tr>
+                            <th width="60%">Nome</th>
+                            <th width="30%">Vínculo</th>
+                            <th>Ações</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <% @construction.employments.each do |e| %>
+                          <tr>     
+                              <td><%= e.person.name %> </td>  
+                              <td><%= e.occupation.name %> </td>
+                              <td><%= link_to "Visualizar", person_path(e.person)  %></td>                 
+                          </tr>
+                        <% end %>
+                        </tbody>
+                      </table>          
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                
+        <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      Arquivos de Projeto
+                    </h3>
+                  </div>
+                  <div class="table">
+                    <div id="documentos" class='row'>
+                      <div class="card-body">  
+                      <table class="table table-bordered table-striped no-padding datatables">
+                        <thead>
+                          <tr>
+                            <th width="30%">Projeto</th>
+                            <th width="60%">Responsável</th>
+                            <th>Anexo</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <% @construction.projects.each do |p| %>
+                          <tr>     
+                              <td><%= p.project_type.name %> </td>  
+                              <td><%= p.employment.person.name %> </td>
+                              <td><%= link_to "Visualizar", rails_blob_path(p.attachment, disposition: 'preview'), target: :_blank  %></td>                 
+                          </tr>
+                        <% end %>
+                        </tbody>
+                      </table>          
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+              
+
+              
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      Documentos
+                    </h3>
+                  </div>
+                  <div class="table">
+                    <div id="documentos" class='row'>
+                      <div class="card-body">  
+                      <table class="table table-bordered table-striped no-padding datatables">
+                        <thead>
+                          <tr>
+                            <th width="80%" align="center">Tipo de Documento</th>
+                            <th>Anexo</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <% @construction.documents.each do |d| %>
+                          <tr>     
+                              <td><%= d.document_type.name %> </td>  
+                              <td><%= link_to "Visualizar", rails_blob_path(d.attachment, disposition: 'preview'), target: :_blank  %></td>                 
+                          </tr>
+                        <% end %>
+                        </tbody>
+                      </table>          
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+
+              
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+
+
+<div class="card card-outline card-info">
+<div class="card-header">
+  <h3 class="card-title">
+    Tarefas
+    <%= link_to new_construction_task_path(@construction), class: "btn btn-xs btn-info" do %>
+      Adicionar <i class="fa fa-plus"></i> 
+    <% end %>     
+  </h3>
+</div>
+
+
+<div class="card-body p-0">  
+  <table class="bootstrap-table-mobile">
+    <thead>
+      <tr>
+        <th data-align='center'>ID</th>
+        <th data-align='left'>Etapa</th> 
+        <th data-align='left'>Tipo de Tarefa</th>
+        <th data-align='left'>Percentual de Execução</th>
+        <th data-align='center'>Data de Início</th>
+        <th data-align='center'>Data de Fim</th>
+        <th data-align='center'>Orçamento Previsto</th>
+        <th data-align='center'>Custo Real</th>
+        <th data-align='center'>Status</th>
+        <th data-align='center'>Atribuida a</th>
+        <th data-align='center'>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @construction.tasks.each do |t| %>
+        <tr>     
+          <td> 
+              <%= link_to construction_task_path(@construction) do %>
+                <%= t.id %></i> 
+              <% end %>    
+          </td>    
+         
+          <td><%= t.task_type.stage.name %></td>
+          <td><%= t.task_type.name %></td>
+          <td><%= t.percentage %></td>
+          <td><%= t.start_date %></td>  
+          <td><%= t.end_date %></td>  
+          <td><%= t.budget_amount %></td>
+          <td><%= t.cost %></td>
+          <td><%= t.status %></td>
+          <td>
+            <% unless t.employment.blank? %>
+              <%= t.employment.person.name %>
+            <% end %> 
+          </td>  
+          <td> 
+            <%= link_to construction_task_path(@construction), class: "btn btn-xs btn-info" do %>
+              Visualizar </i> 
+            <% end %>    
+          </td>    
+        </tr>
+      <% end %>
+    </tbody>
+  </table>          
+</div>
+</div>   
+      </div>

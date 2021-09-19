@@ -1,0 +1,31 @@
+
+<%= simple_form_for([@construction, @task]) do |f| %>
+  <div class="card card-outline card-info">
+    <div class="card-header">
+      <h3 class="card-title">
+        Dados do <%= object.class.model_name.human %> 
+        <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default btn-xs" %>
+        <%= f.submit 'Salvar', class: "btn btn-info btn-xs" %>
+      </h3>
+    </div>
+
+    <div class="card-body">
+      <div class="row">          
+        <%= f.association :task_type, collection: @construction.construction_type.task_types, label_method: :full_description, input_html: { class: 'select2' },   wrapper_html: { class: 'col-md-12' } %>         
+        <%= f.input :start_date,  html5: true,  wrapper_html: { class: 'col-md-3' } %>  
+        <%= f.input :end_date,  html5: true,  wrapper_html: { class: 'col-md-3' } %>  
+        <%= f.input :percentage, :input_html => {value: number_with_precision(f.object.percentage, precision: 2) } %>
+        <%= f.input :budget_amount, wrapper_html: { class: 'col-md-3' } %>   
+        <%= f.association :employment, collection: Employment.where(status: 'active'), label_method: :full_description, input_html: { class: 'select2' },  wrapper_html: { class: 'col-md-4' }  %>
+               
+      </div>
+    </div>  
+  </div>
+
+  <div class="card card-outline card-info">
+    <div class="card-footer">
+      <%= link_to 'Cancelar', @task.construction, class: "btn btn-default" %>
+      <%= f.submit class: "btn btn-info" %>
+    </div>
+  </div>
+<% end %>

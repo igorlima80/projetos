@@ -1,0 +1,92 @@
+<% exceptions ||= ['created_at', 'updated_at', 'deleted_at'] %>
+<% search_fields ||= [] %>
+<% sort_fields ||= [] %>
+<% sort_all ||= false %>
+<% nested_resource ||= false %>
+<% excluded_columns ||= [] %>
+<% show_columns ||= [] %>
+<% additional_columns ||= [] %>
+<% additional_actions ||= [] %>
+<% box_class ||= 'primary' %>
+<% table_no_padding ||= false %>
+<% table_class ||= 'datatables' %>
+
+<% hide_links ||= false %>
+<% hide_actions ||= false %>
+<% hide_header ||= false %>
+<% hide_footer ||= false %>
+
+<% hide_read_action ||= false %>
+<% hide_edit_action ||= false %>
+<% hide_destroy_action ||= false %>
+
+<div class='box box-<%= box_class %> card card-outline card-<%= box_class %>'>
+  <% unless hide_header %>
+    <div class="box-header with-border card-header">
+      <h3 class="box-title card-title">
+        <strong>
+          <%= list.klass.model_name.human.pluralize %>
+        </strong>
+      </h3>
+      <% if block_given? %>
+        <%= yield %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="box-body card-body <%= 'no-padding' if table_no_padding %> <%= 'p-0' if table_no_padding %>">
+    <% unless search_fields.empty? %>
+      <%= search_form_for @q, class: 'p-2', url: eval(nested_resource ? "#{parent_resource}_#{controller_name}_path" : "#{controller_name}_path") do |f| %>
+        <div class="row">
+          <% search_fields.each do |sf| %>
+            <%= f.input sf[:field], label: sf[:label], required: false, as: sf[:as], collection: sf[:collection], wrapper_html: { class: 'col-md-3' } %>
+          <% end %>
+          <div class="col-md-12 top-25 ">
+            <%= f.submit "Pesquisar", class: "btn btn-#{box_class}" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= render 'shared/list', list: list, exceptions: exceptions, excluded_columns: excluded_columns,
+      additional_columns: additional_columns, sort_fields: sort_fields, sort_all: sort_all,
+      additional_actions: additional_actions, hide_actions: hide_actions, table_class: table_class,
+      show_columns: show_columns, hide_read_action: hide_read_action, hide_edit_action: hide_edit_action,
+      hide_destroy_action: hide_destroy_action, box_class: box_class
+    %>
+    <% if defined? list.total_pages %>
+      <div class="row mt-2">
+        <div class='col-md-4'>
+          <%= page_entries_info list, entry_name: 'resultado(s)' %>
+        </div>
+        <div class='col-md-8 hidden-xs d-none d-sm-block'>
+          <div class="pagination float-right">
+            <%= paginate list, window: 4 %>
+          </div>
+        </div>
+        <div class='col-md-8 text-center visible-xs d-block d-sm-none'>
+          <%= paginate list, window: 1 %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% unless hide_links %>
+    <% unless controller_name == 'users' %>
+      <div class="box-footer card-footer">
+        <% if can? :new, list.klass %>
+          <% if nested_resource == true %>
+            <% if parent_resource %>
+              <%= link_to eval("new_#{parent_resource.class.model_name.singular}_#{list.klass.model_name.singular}_path(#{parent_resource.id})"), class: "btn btn-#{box_class}" do %>
+                <%= t('.new', default: t("helpers.links.new")) %> <%= list.klass.model_name.human %> <i class='fa fa-plus'></i>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to eval("new_#{list.klass.model_name.singular}_path"), class: "btn btn-#{box_class}" do %>
+              <%= t('.new', default: t("helpers.links.new")) %> <%= list.klass.model_name.human %> <i class='fa fa-plus'></i>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

@@ -1,0 +1,15 @@
+<%= render 'shared/card_list',
+  list: @tasks,
+  sort_all: true,
+  show_new: true,
+  card_class: 'info',
+  table_class: 'bootstrap-table-mobile',
+  show_columns: [
+    'id',
+    'task_type.stage.name',
+    'task_type.name',
+    'start_date',
+    'end_date'
+
+  ]
+%>

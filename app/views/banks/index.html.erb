@@ -1,0 +1,12 @@
+<%= render 'shared/card_list',
+  list: @banks,
+  sort_all: true,
+  show_new: true,
+  card_class: 'info',
+  table_class: 'bootstrap-table-mobile',
+  show_columns: [
+    'id',
+    'code',
+    'name'    
+  ]
+%>

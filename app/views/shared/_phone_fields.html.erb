@@ -1,0 +1,13 @@
+<div class="card card-info card-outline address nested-fields">
+  <div class="card-header with-border">
+    <h3 class="card-title">
+      <%= User.model_name.human %>
+    </h3>
+  </div>
+  <div class="card-body">
+    <div class="row ">
+      <%= f.input :email, wrapper_html: { class: 'col-md-6' } %>
+      <%= f.input :password, wrapper_html: { class: 'col-md-6' } if f.object.new_record? %>
+    </div>
+  </div>
+</div>

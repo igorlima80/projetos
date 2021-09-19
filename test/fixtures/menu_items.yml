@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  link: MyString
+  icon: MyString
+  publised: MyString
+  position: 1
+  target: MyString
+  active_test: MyString
+  permission: MyString
+  permission_check: MyString
+
+two:
+  name: MyString
+  link: MyString
+  icon: MyString
+  publised: MyString
+  position: 1
+  target: MyString
+  active_test: MyString
+  permission: MyString
+  permission_check: MyString
